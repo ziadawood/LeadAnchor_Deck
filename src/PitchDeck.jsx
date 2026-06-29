@@ -642,22 +642,22 @@ export default function PitchDeck() {
     <div className="min-h-screen bg-gray-900 flex flex-col justify-center items-center p-4 print:p-0 print:bg-white print:block">
       
       {/* Top Bar - Not printed */}
-      <div className="fixed top-0 left-0 right-0 h-16 bg-navy text-white flex items-center justify-between px-6 z-50 deck-nav shadow-lg">
-        <div className="font-heading font-bold flex items-center gap-2">
-          <span className="text-emerald">⚓</span> LeadAnchor
+      <div className="fixed top-0 left-0 right-0 h-16 bg-navy text-white flex items-center justify-between px-4 md:px-6 z-50 deck-nav shadow-lg">
+        <div className="font-heading font-bold flex items-center gap-2 text-lg md:text-xl truncate">
+          <span className="text-emerald">⚓</span> <span className="hidden sm:inline">LeadAnchor</span>
         </div>
         
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
           <div className="flex bg-slate/20 rounded-lg p-1 mode-toggle">
             <button 
               onClick={() => setMode('investor')}
-              className={`px-4 py-1.5 rounded-md text-sm font-semibold transition-colors ${mode === 'investor' ? 'bg-navy text-white shadow' : 'text-white/60 hover:text-white'}`}
+              className={`px-3 md:px-4 py-1.5 rounded-md text-xs md:text-sm font-semibold transition-colors ${mode === 'investor' ? 'bg-navy text-white shadow' : 'text-white/60 hover:text-white'}`}
             >
               Investor
             </button>
             <button 
               onClick={() => setMode('smb')}
-              className={`px-4 py-1.5 rounded-md text-sm font-semibold transition-colors ${mode === 'smb' ? 'bg-navy text-white shadow' : 'text-white/60 hover:text-white'}`}
+              className={`px-3 md:px-4 py-1.5 rounded-md text-xs md:text-sm font-semibold transition-colors ${mode === 'smb' ? 'bg-navy text-white shadow' : 'text-white/60 hover:text-white'}`}
             >
               SMB Owner
             </button>
@@ -666,9 +666,9 @@ export default function PitchDeck() {
           <button 
             onClick={() => window.print()}
             title="Opens print dialog — Save as PDF in your browser. All 14 slides print one per page."
-            className="download-btn flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg transition-colors font-medium"
+            className="download-btn flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg transition-colors font-medium whitespace-nowrap flex-shrink-0"
           >
-            <Download className="w-4 h-4" /> Download PDF
+            <Download className="w-4 h-4" /> <span className="hidden md:inline">Download PDF</span>
           </button>
         </div>
       </div>
@@ -696,23 +696,23 @@ export default function PitchDeck() {
       </div>
 
       {/* Bottom Nav Bar - Not printed */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur rounded-full shadow-2xl border border-gray-200 px-2 py-2 flex items-center gap-6 z-50 deck-nav">
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur rounded-full shadow-2xl border border-gray-200 px-2 py-2 flex items-center gap-3 sm:gap-6 z-50 deck-nav w-[92%] max-w-[420px] justify-between">
         <button 
           onClick={goPrev}
           disabled={currentSlide === 0}
-          className="p-2 rounded-full bg-navy text-white disabled:opacity-30 disabled:bg-gray-400 transition-colors"
+          className="p-2 rounded-full bg-navy text-white disabled:opacity-30 disabled:bg-gray-400 transition-colors flex-shrink-0 hover:bg-[#0F315E]"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         
-        <div className="text-sm font-semibold text-gray-500 min-w-[250px] text-center">
-          Slide {currentSlide + 1} of {slidesCount} <span className="mx-2 opacity-50">·</span> {slideTitles[currentSlide]}
+        <div className="text-xs sm:text-sm font-semibold text-gray-500 text-center truncate flex-1">
+          <span className="hidden sm:inline">Slide </span>{currentSlide + 1} of {slidesCount} <span className="mx-1 sm:mx-2 opacity-50">·</span> <span className="text-gray-900 truncate">{slideTitles[currentSlide]}</span>
         </div>
 
         <button 
           onClick={goNext}
           disabled={currentSlide === slidesCount - 1}
-          className="p-2 rounded-full bg-emerald text-white disabled:opacity-30 disabled:bg-gray-400 transition-colors"
+          className="p-2 rounded-full bg-emerald text-white disabled:opacity-30 disabled:bg-gray-400 transition-colors flex-shrink-0 hover:bg-[#00A368]"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
