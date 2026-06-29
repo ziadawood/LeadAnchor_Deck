@@ -642,33 +642,34 @@ export default function PitchDeck() {
     <div className="min-h-screen bg-gray-900 flex flex-col justify-center items-center p-4 print:p-0 print:bg-white print:block">
       
       {/* Top Bar - Not printed */}
-      <div className="fixed top-0 left-0 right-0 h-16 bg-navy text-white flex items-center justify-between px-4 md:px-6 z-50 deck-nav shadow-lg">
-        <div className="font-heading font-bold flex items-center gap-2 text-lg md:text-xl truncate">
-          <span className="text-emerald">⚓</span> <span className="hidden sm:inline">LeadAnchor</span>
+      <div className="fixed top-0 left-0 right-0 h-16 bg-navy text-white flex items-center justify-between px-4 sm:px-6 z-50 deck-nav shadow-lg">
+        <div className="font-heading font-bold flex items-center gap-2 text-lg sm:text-xl truncate pr-2">
+          <span className="text-emerald">⚓</span> <span className="hidden lg:inline">LeadAnchor</span>
         </div>
         
-        <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
           <div className="flex bg-slate/20 rounded-lg p-1 mode-toggle">
             <button 
               onClick={() => setMode('investor')}
-              className={`px-3 md:px-4 py-1.5 rounded-md text-xs md:text-sm font-semibold transition-colors ${mode === 'investor' ? 'bg-navy text-white shadow' : 'text-white/60 hover:text-white'}`}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-semibold transition-colors ${mode === 'investor' ? 'bg-navy text-white shadow' : 'text-white/60 hover:text-white'}`}
             >
               Investor
             </button>
             <button 
               onClick={() => setMode('smb')}
-              className={`px-3 md:px-4 py-1.5 rounded-md text-xs md:text-sm font-semibold transition-colors ${mode === 'smb' ? 'bg-navy text-white shadow' : 'text-white/60 hover:text-white'}`}
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-semibold transition-colors ${mode === 'smb' ? 'bg-navy text-white shadow' : 'text-white/60 hover:text-white'}`}
             >
-              SMB Owner
+              <span className="hidden sm:inline">SMB Owner</span>
+              <span className="inline sm:hidden">SMB</span>
             </button>
           </div>
           
           <button 
             onClick={() => window.print()}
-            title="Opens print dialog — Save as PDF in your browser. All 14 slides print one per page."
-            className="download-btn flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg transition-colors font-medium whitespace-nowrap flex-shrink-0"
+            title="Opens print dialog — Save as PDF in your browser."
+            className="download-btn flex items-center gap-2 text-xs sm:text-sm bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg transition-colors font-medium whitespace-nowrap flex-shrink-0"
           >
-            <Download className="w-4 h-4" /> <span className="hidden md:inline">Download PDF</span>
+            <Download className="w-4 h-4" /> <span className="hidden lg:inline">Download PDF</span>
           </button>
         </div>
       </div>
