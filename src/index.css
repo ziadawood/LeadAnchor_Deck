@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print {
+  .deck-nav, .mode-toggle, .download-btn { display: none !important; }
+  .slide-shell {
+    page-break-after: always;
+    break-after: page;
+    width: 100vw !important;
+    height: 56.25vw !important;
+    margin: 0;
+    padding: 0;
+  }
+  body { margin: 0; padding: 0; }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f3f4f6; /* gray-100 */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: '"Plus Jakarta Sans"', sans-serif;
+}
